@@ -1,13 +1,147 @@
 ---
-title: Welcome to Middleman
+title:
+description:
+keywords:
 ---
 
-<div class="welcome">
-  <div class="logo">
-    <%= image_tag "middleman-logo.svg" %>
+<div class="container p-b-lg" id="main">
+  <div class="row">
+
+    <div class="col-sm-3">
+      <ul class="nav nav-bordered nav-stacked">
+        <li class="nav-header m-t">Import</li>
+        <li><a href="#file-format">File format</a></li>
+      </ul>
+
+    </div>
+
+    <div class="col-sm-9">
+      <h2 class="page-header" id="import">Import</h2>
+
+      <p class="lead">Import historical data in Dialog and gain instant insights into previously unused data.</p>
+
+      <div class="callout callout-primary">
+        <div class="callout-content">
+          <p>Only <code>text</code> messages can currently be imported. Support for all other <a href="https://docs.dialoganalytics.com/reference/message/#message-types">message types</a> is coming soon.</p>
+        </div>
+      </div>
+
+      <h3 class="page-header" id="file-format">File Format</h3>
+      <p>In order to work properly, the data must be in a <strong>comma separated</strong> <code>csv</code> format, with headers.</p>
+      <p>The following headers are expected:</p>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table m-b-0">
+            <thead>
+              <tr>
+                <th>Header</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>message_id</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>Message ID assigned by the issuing platform.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>platform</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>The platform on which the message is sent. Possible values: <code>telegram</code>, <code>messenger</code>, <code>kik</code>, <code>slack</code>, <code>line</code>, <code>skype</code>, <code>wechat</code>, <code>whatsapp</code>.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>conversation_id</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>A unique conversation, thread or channel ID issued by the messenging platform.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>creator_id</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>ID of sender, either a unique user ID, the bot's token or a custom <code>creator_key</code>.</p>
+                  <p>You may set the <code>creator_key</code> in the bot's settings and it will be used to associate messages sent by the bot.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>sent_at</td>
+                <td>
+                  <strong>integer</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>Timestamp in UTC epoch seconds.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>text</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-primary">Required</span>
+                  <p>Text content of the message.</p>
+                </td>
+              </tr>
+              <tr>
+                <td>first_name</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User first name</p>
+                </td>
+              </tr>
+              <tr>
+                <td>last_name</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User last name</p>
+                </td>
+              </tr>
+              <tr>
+                <td>gender</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User gender</p>
+                </td>
+              </tr>
+              <tr>
+                <td>timezone</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User timezone</p>
+                </td>
+              </tr>
+              <tr>
+                <td>locale</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User locale</p>
+                </td>
+              </tr>
+              <tr>
+                <td>profile_picture</td>
+                <td>
+                  <strong>string</strong>
+                  <span class="label label-default">Optional</span>
+                  <p>User profile picture</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <h1>Middleman is Running</h1>
-  <p class="doc">
-    <%= link_to "Read Documentation Online", "https://middlemanapp.com", target: "_blank" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+</div>
