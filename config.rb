@@ -18,9 +18,29 @@ page '/*.txt', layout: false
 
 # General configuration
 
+config[:host] = "https://help.dialoganalytics.com"
+
+activate :asset_hash
+activate :directory_indexes
+
 # Reload the browser automatically whenever files change
 configure :development do
   activate :livereload
+end
+
+# Build-specific configuration
+configure :build do
+  ignore 'stylesheets/components/*'
+
+  # Minify CSS on build
+  activate :minify_css
+
+  # Minify Javascript on build
+  activate :minify_javascript
+
+  activate :minify_html
+
+  activate :gzip
 end
 
 ###
@@ -33,12 +53,3 @@ end
 #     "Helping"
 #   end
 # end
-
-# Build-specific configuration
-configure :build do
-  # Minify CSS on build
-  # activate :minify_css
-
-  # Minify Javascript on build
-  # activate :minify_javascript
-end
