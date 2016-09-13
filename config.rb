@@ -32,13 +32,9 @@ end
 configure :build do
   ignore 'stylesheets/components/*'
 
-  # Minify CSS on build
-  activate :minify_css
-
-  # Minify Javascript on build
-  activate :minify_javascript
-
-  activate :minify_html
+  activate :minify_css          # Minify CSS on build
+  activate :minify_javascript   # Minify Javascript on build
+  activate :minify_html         # Minify HTML on build
 
   activate :gzip
 end
